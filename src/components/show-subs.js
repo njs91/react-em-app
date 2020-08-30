@@ -17,11 +17,29 @@ export default class showSubs extends React.Component {
     }
 
   render() {
+    if (this.state.loading) {
+        return <div>loading...</div>
+    }
+
+    if (!this.state.subs) {
+        return <div>no data to load.</div>
+    }
+
     return (
-        <div>
-            {this.state.loading || !this.state.subs ? <div>loading...</div> :
-            <div>
-                {this.state.subs.map((sub) => sub.name)}
+        <div id="users-grid-container">
+            <h1 id="users-intro">Viewing Some Subscribers</h1>
+            {<div id="users-grid">
+                {this.state.subs.map((sub) => 
+                    <div className="row">
+                        <div className="user-col name">{sub.name}</div>
+                        <div className="user-col email">{sub.email}</div>
+                        <div className="user-col tag">{sub.tag}</div>
+                        <div className="user-col date">{sub.subDate}</div>
+                        <div className="user-col view">
+                            <a href="#" className="view-sub">View</a>
+                        </div>
+                    </div>
+                )}
             </div>}
         </div>
     )
