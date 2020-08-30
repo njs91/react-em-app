@@ -7,13 +7,14 @@ export default class App extends Component {
     super();
 
     this.state = {
-      navLinks: navLinks
+      navLinks: navLinks,
+      intro: "hello world"
     }
   }
 
   render() {
     return (
-        <Root navLinks={this.state.navLinks}></Root>
+        <Root navLinks={this.state.navLinks} intro={this.state.intro}></Root>
     );
   } 
 }
