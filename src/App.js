@@ -40,7 +40,7 @@ export default class App extends Component {
           <Route path="/">
             <p>homepage</p>
           </Route>
-          <Route path={"/sub/:id"} component={SubPage} />
+          <Route path={"/sub/:_id"} component={SubPage} />
         </Switch>
       
         <p>the url: {this.state.url}</p>
