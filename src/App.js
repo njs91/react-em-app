@@ -6,6 +6,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import {SubPage} from "./components/subPage";
 import ShowSubs from "./components/show-subs";
 
 export default class App extends Component {
@@ -39,6 +40,7 @@ export default class App extends Component {
           <Route path="/">
             <p>homepage</p>
           </Route>
+          <Route path={"/sub/:id"} component={SubPage} />
         </Switch>
       
         <p>the url: {this.state.url}</p>

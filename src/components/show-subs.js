@@ -1,4 +1,10 @@
 import React from "react";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 export default class showSubs extends React.Component {
     state = {
@@ -29,14 +35,21 @@ export default class showSubs extends React.Component {
         <div id="users-grid-container">
             <h1 id="users-intro">Viewing Some Subscribers</h1>
             {<div id="users-grid">
-                {this.state.subs.map((sub) => 
-                    <div className="row">
+                <div class="row">
+                    <div class="user-col">Name</div>
+                    <div class="user-col">Email</div>
+                    <div class="user-col">Tag</div>
+                    <div class="user-col">Subscription Date</div>
+                    <div class="user-col view"></div>
+                </div>
+                {this.state.subs.map((sub, i) => 
+                    <div className="row" key={i}>
                         <div className="user-col name">{sub.name}</div>
                         <div className="user-col email">{sub.email}</div>
                         <div className="user-col tag">{sub.tag}</div>
                         <div className="user-col date">{sub.subDate}</div>
                         <div className="user-col view">
-                            <a href="#" className="view-sub">View</a>
+                            <Link to={`/sub/${sub._id}`} className="view-sub">View</Link>
                         </div>
                     </div>
                 )}
