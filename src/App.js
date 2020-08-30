@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import NavMenu from "./components/nav-menu";
 import {navLinks} from "./components/nav-links";
+import Root from "./components/Root";
 
 export default class App extends Component {
   constructor() {
@@ -13,9 +13,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div id="container">
-        <NavMenu navLinks={this.state.navLinks} />
-      </div>
+        <Root navLinks={this.state.navLinks}></Root>
     );
   } 
 }
