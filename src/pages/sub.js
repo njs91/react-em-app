@@ -30,17 +30,7 @@ export class SubPage extends React.Component {
             <div className="sub-details-individual">
                 <h1 class="std-intro">Viewing a Single Subscriber</h1>
                 <div className="sub-specs">
-                    <div className="sub-specs-inner">
-                        <SingleSub sub={this.state.sub} />
-                        <div class="sub-spec">
-                            <div className="sub-spec-detail">Name:</div>
-                            <div className="sub-spec-value"></div>
-                        </div>
-                        <div class="sub-spec">
-                            <div className="sub-spec-detail">ID:</div>
-                            <div className="sub-spec-value">{this.props.match.params._id}</div>
-                        </div>
-                    </div>
+                    <SingleSub sub={this.state.sub} />
                 </div>
             </div>
         )
