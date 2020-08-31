@@ -6,7 +6,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import {SubPage} from "./components/subPage";
+import {SubPage} from "./pages/sub";
 import ShowSubs from "./components/show-subs";
 
 export default class App extends Component {
@@ -32,12 +32,12 @@ export default class App extends Component {
         <Root navLinks={this.state.navLinks} intro={this.state.intro}></Root>
 
         <Switch>
-          <Route path="/subs">
+          <Route exact path="/subs">
             <p>subs page</p>
             {/*this.updateURL('/subs') fails presumably because it causes the rerender infinitely - but how to solve?*/}
             <ShowSubs />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <p>homepage</p>
           </Route>
           <Route path={"/sub/:_id"} component={SubPage} />
