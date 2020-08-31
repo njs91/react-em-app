@@ -1,4 +1,5 @@
 import React from 'react'
+import SingleSub from '../components/sub.js'
 
 export class SubPage extends React.Component {
     state = {
@@ -30,7 +31,7 @@ export class SubPage extends React.Component {
                 <h1 class="std-intro">Viewing a Single Subscriber</h1>
                 <div className="sub-specs">
                     <div className="sub-specs-inner">
-                        
+                        <SingleSub sub={this.state.sub} />
                         <div class="sub-spec">
                             <div className="sub-spec-detail">Name:</div>
                             <div className="sub-spec-value"></div>
