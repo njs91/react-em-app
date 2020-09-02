@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {navLinks} from "./components/nav-links";
+import {navLinks} from "./util/nav-links";
 import Root from "./components/Root";
 import {
   BrowserRouter as Router,
@@ -14,9 +14,7 @@ export default class App extends Component {
     super();
 
     this.state = {
-      navLinks: navLinks,
-      intro: "hello world",
-      url: "someurl"
+      navLinks: navLinks
     }
   }
 
@@ -29,7 +27,7 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <Root navLinks={this.state.navLinks} intro={this.state.intro}></Root>
+        <Root navLinks={this.state.navLinks} intro='hello world' />
 
         <Switch>
           <Route exact path="/subs">
@@ -42,8 +40,6 @@ export default class App extends Component {
           </Route>
           <Route path={"/sub/:_id"} component={SubPage} />
         </Switch>
-      
-        <p>the url: {this.state.url}</p>
       </Router>
     );
   } 

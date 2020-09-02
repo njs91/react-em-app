@@ -6,7 +6,7 @@ import {
     Link
   } from "react-router-dom";
 
-export default class showSubs extends React.Component {
+export default class ShowSubs extends React.Component {
     state = {
         loading: true,
         subs: null

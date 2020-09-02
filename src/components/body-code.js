@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class bodyCode extends React.Component {
+export default class BodyCode extends React.Component {
     constructor(props) {
         super(props);
         this.state = {isToggleOn: true}; // boolean for event listener alternative
