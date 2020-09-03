@@ -5,15 +5,20 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import {navLinks} from "../util/nav-links";
 
-export default class NavBar extends React.Component {
-  render() {
-    return (
-      <div id="navbar">
+export const NavMenu = () => {
+  return (
+    <div id="navbar">
         <ul>
-          {this.props.navLinks.map((link) => <li><Link to={link.href} key = {link.href} > {link.name} </Link></li>)}
+          {navLinks.map(link => {
+            return (
+              <li>
+                <Link to={link.href} key={link.href}>{link.name}</Link>
+              </li>
+            )
+          })}
         </ul>
       </div>
-    )
-  }
+  )
 }

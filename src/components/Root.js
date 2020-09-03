@@ -1,5 +1,5 @@
 import React from "react";
-import NavMenu from "./nav-menu";
+import {NavMenu} from "./nav-menu";
 import Intro from "./intro";
 import BodyCode from "./body-code";
 
