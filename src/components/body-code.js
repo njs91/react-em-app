@@ -17,7 +17,7 @@ export default class BodyCode extends React.Component {
       
   render() {
     return (
-      <div>
+      <div id="body">
           <p>some body text</p>
           <button onClick={this.handleClick}>
             {this.state.isToggleOn ? 'ON' : 'OFF'}
