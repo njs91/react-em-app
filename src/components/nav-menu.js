@@ -4,9 +4,12 @@ import {navLinks} from "../util/nav-links";
 
 export default class NavMenu extends React.Component {
   render() {
+    var isActive = this.context.router.route.location.pathname === this.props.to;
+    var className = isActive ? 'active' : '';
+
     const lis = navLinks.map(link => (
       <li>
-        <Link to={link.href} key={link.href}>{link.name}</Link>
+        <Link className={className} to={link.href} key={link.href}>{link.name}</Link>
       </li>
       )
     )
