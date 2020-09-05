@@ -4,7 +4,8 @@ import {Link} from "react-router-dom";
 export default class ShowSubs extends React.Component {
     state = {
         loading: true,
-        subs: null
+        subs: null,
+        subCount: null
     };
 
     async componentDidMount() {
@@ -13,7 +14,8 @@ export default class ShowSubs extends React.Component {
         const data = await response.json();
         this.setState({
             subs: data.subs,
-            loading: false
+            loading: false,
+            subCount: data.subs.length
         })
     }
 
@@ -27,6 +29,14 @@ export default class ShowSubs extends React.Component {
     }
 
     return (
+    <div>
+        {this.state.subCount ?
+        <div class="inner-details">
+            <div class="recent-details">
+                Total Subs: <span class="sub-count">{this.state.subCount}</span>
+            </div>
+        </div>
+        : null}
         <div id="users-grid-container">
             <h1 id="users-intro">Viewing Some Subscribers</h1>
             {<div id="users-grid">
@@ -49,6 +59,7 @@ export default class ShowSubs extends React.Component {
                     </div>
                 )}
             </div>}
+        </div>
         </div>
     )
   }
