@@ -2,11 +2,18 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 export default class ShowSubs extends React.Component {
-    state = {
-        loading: true,
-        subs: null,
-        subCount: null
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: true,
+            subs: null,
+            subCount: null
+        };
+        
+        // This binding is necessary to make `this` work in the callback
+        this.onMouseEnterHandler = this.onMouseEnterHandler.bind(this);
+        this.onMouseLeaveHandler = this.onMouseLeaveHandler.bind(this);
+      }
 
     async componentDidMount() {
         const url = 'https://em-app-basic.herokuapp.com/emails-api';
@@ -15,8 +22,29 @@ export default class ShowSubs extends React.Component {
         this.setState({
             subs: data.subs,
             loading: false,
-            subCount: data.subs.length
+            subCount: data.subs.length,
+            hover: false
         })
+    }
+
+    onMouseEnterHandler(e) {
+        this.setState({
+            hover: true
+        });
+        console.log('enter');
+        e.target.classList.add('hovered');
+    }
+    
+    onMouseLeaveHandler(e) {
+        this.setState({
+            hover: false
+        });
+        console.log('leave');
+        e.target.classList.remove('hovered');
+    }
+
+    clickTest() {
+        console.log('click');
     }
 
   render() {
@@ -30,7 +58,7 @@ export default class ShowSubs extends React.Component {
 
     return (
     <div>
-        {this.state.subCount ?
+        {this.state.subCount ? 
         <div class="inner-details">
             <div class="recent-details">
                 Total Subs: <span class="sub-count">{this.state.subCount}</span>
@@ -48,7 +76,10 @@ export default class ShowSubs extends React.Component {
                     <div class="user-col view"></div>
                 </div>
                 {this.state.subs.map((sub, i) => 
-                    <div className="row" key={i}>
+                    <div className="row" key={i}
+                    onMouseEnter={this.onMouseEnterHandler}
+                    onMouseLeave={this.onMouseLeaveHandler}
+                    onClick={this.clickTest}>
                         <div className="user-col name">{sub.name}</div>
                         <div className="user-col email">{sub.email}</div>
                         <div className="user-col tag">{sub.tag}</div>

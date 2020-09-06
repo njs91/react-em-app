@@ -7,6 +7,7 @@ import {
   Route
 } from "react-router-dom";
 import {SubPage} from "./pages/sub";
+import {ChangeClassTest} from "./pages/testing";
 import ShowSubs from "./components/show-subs";
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
           <Route exact path="/">
             <p>homepage</p>
           </Route>
+          <Route exact path="/testing" component={ChangeClassTest} />
           <Route path={"/sub/:_id"} component={SubPage} />
         </Switch>
       </Router>
