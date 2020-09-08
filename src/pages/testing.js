@@ -16,7 +16,7 @@ export class ChangeClassTest extends React.Component {
       onMouseEnterHandler(e) {
         this.setState({
             hover: true,
-            src: e.target.setAttribute('src')
+            src: e.target.getAttribute('src')
         });
         console.log('enter', e.target.getAttribute('src'));
         e.target.classList.add('hovered');
